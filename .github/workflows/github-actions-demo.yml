@@ -1,0 +1,25 @@
+name: Deploy Camunda BPMN
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy BPMN/DMN to Camunda
+        run: |
+          for file in $(find . -type f \( -name "*.bpmn" -o -name "*.dmn" -o -name "*.form" \)); do
+            echo "Uploading $file"
+            curl -X POST https://api.cloud.camunda.io/v1/deployments \
+              -H "Authorization: Bearer ${{ secrets.CAMUNDA_API_TOKEN }}" \
+              -H "Content-Type: multipart/form-data" \
+              -F "files=@$file" \
+              -F "deploymentName=AutoDeployment" \
+              -F "targetNamespace=your-namespace"
+          done
