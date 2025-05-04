@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_rhuz8by" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="e6de519" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <decision id="determineRequiredQCs" name="Determine required QCs">
+    <decisionTable id="DecisionTable_07og6ih" hitPolicy="COLLECT">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>claimAmount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="min_experience" typeRef="number" />
+      <output id="OutputClause_01ajr0t" name="max_experience" typeRef="number" />
+      <rule id="DecisionRule_1cj38ob">
+        <description>Less experienced quality checkers range</description>
+        <inputEntry id="UnaryTests_1q54b48">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14byll2">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07k7bnz">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0msldkx">
+        <description>Intermediate quality checkers range</description>
+        <inputEntry id="UnaryTests_0rc4egb">
+          <text>&gt;= 50000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hs1yxw">
+          <text>3</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14i3tc7">
+          <text>6</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c8smeh">
+        <description>Experienced  quality checkers range</description>
+        <inputEntry id="UnaryTests_06zleaw">
+          <text>&gt;=100000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vo0jaj">
+          <text>6</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yya2zz">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="determineRequiredQCs">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

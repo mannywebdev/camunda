@@ -1,0 +1,45 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "8d36a4d"
+  },
+  "schemaVersion": 18,
+  "id": "assign-to-qc-0nsmnmd",
+  "components": [
+    {
+      "text": "# QC Approval",
+      "type": "text",
+      "layout": {
+        "row": "Row_1rcq6r7",
+        "columns": null
+      },
+      "id": "Field_1h68ypg"
+    },
+    {
+      "label": "Do you think the claim is valid?",
+      "values": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ],
+      "type": "radio",
+      "layout": {
+        "row": "Row_1tdxizv",
+        "columns": null
+      },
+      "id": "Field_0dy03hl",
+      "key": "qcApproved",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default"
+}

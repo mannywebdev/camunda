@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_154rq20" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="8d36a4d" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="Decision_1sq7dts" name="Check Auto Approval">
+    <decisionTable id="DecisionTable_0bswod8">
+      <input id="Input_1" label="Claim Type">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>claimType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1gog3we" label="Treatment Type">
+        <inputExpression id="LiteralExpression_08crsz7" typeRef="string">
+          <text>treatmentType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0wxo530" label="Hospital Type" biodi:width="192">
+        <inputExpression id="LiteralExpression_1lm9ioi" typeRef="string">
+          <text>hospitalType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0agkhx1" label="Amount &#60;= Sublimit">
+        <inputExpression id="LiteralExpression_1xelezo" typeRef="boolean">
+          <text>amount &lt;= subLimit</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1hq31u6" label="Documents Complete ">
+        <inputExpression id="LiteralExpression_1ntd8q4" typeRef="boolean">
+          <text>documentsComplete</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1lcq3vn" label="Policy Active">
+        <inputExpression id="LiteralExpression_1b33f3o" typeRef="boolean">
+          <text>policyActive</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Auto Approve" name="autoApprove" typeRef="boolean" />
+      <output id="OutputClause_0hxiypy" label="Auto Deny" name="autoDeny" typeRef="boolean" biodi:width="192" />
+      <rule id="DecisionRule_1xybedz">
+        <description></description>
+        <inputEntry id="UnaryTests_10bvmil">
+          <text>Reimbursement</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qln9de">
+          <text>Cataract-Surgery</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_052ebzo">
+          <text>Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09pa3ey">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0te7pty">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18axvzf">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aq4czg">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1v7lc33">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gqkozr">
+        <description></description>
+        <inputEntry id="UnaryTests_11f8s4h">
+          <text>Reimbursement</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b400gw">
+          <text>Cataract-Surgery</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j7ehyb">
+          <text>Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a9kq96">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ki0e3s">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bwtqgy">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1abpk86">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0e6h3i1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03ipj6g">
+        <description></description>
+        <inputEntry id="UnaryTests_03dw0rh">
+          <text>Reimbursement</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_165jgsz">
+          <text>Cataract-Surgery</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qfsy7a">
+          <text>Non-Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15a70vo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_153fyjr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vomuov">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p59ggt">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fetddl">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0afx9gw">
+        <description></description>
+        <inputEntry id="UnaryTests_1t8v4gx">
+          <text>Reimbursement</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1shvqhn">
+          <text>Dental-Treatment</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gc43mu">
+          <text>Non-Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y0w4dk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tctrro">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uaay71">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o0szwh">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0x4r48t">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vfz1ys">
+        <description></description>
+        <inputEntry id="UnaryTests_092h4nz">
+          <text>Cashless</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yxjqz6">
+          <text>OPD-Consultation</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nuu6gp">
+          <text>Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18b4orl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04c0nb2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gcb2kc">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0euvnck">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kfulp8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1k3a5il">
+        <description></description>
+        <inputEntry id="UnaryTests_1iki9bc">
+          <text>Cashless</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iea27h">
+          <text>OPD-Consultation</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y4u2vy">
+          <text>Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_152n0zv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pt0stb">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wucl9o">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0awxrg4">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p7g9o3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05gitoc">
+        <description></description>
+        <inputEntry id="UnaryTests_1ksqoqx">
+          <text>Reimbursement</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w50pts">
+          <text>Knee-Replacement</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1afd8gh">
+          <text>Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hu13so">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_150xpdo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sm20br">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i0bwrb">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17tfm1h">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bd10vm">
+        <description></description>
+        <inputEntry id="UnaryTests_1i1mvof">
+          <text>Reimbursement</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dxssgo">
+          <text>Covid-Treatment</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p9qscu">
+          <text>Network</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jmozv3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ujcq78">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p1kqho">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kldiww">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0pbnjr0">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1sq7dts">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
