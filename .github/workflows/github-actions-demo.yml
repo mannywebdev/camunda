@@ -14,11 +14,7 @@ jobs:
 
       - name: Deploy BPMN/DMN to Camunda
         run: |
-          curl -X POST https://api.cloud.camunda.io/v1/deployments \
-          -H "Authorization: Bearer ${{ secrets.CAMUNDA_API_TOKEN }}" \
-          -H "Content-Type: multipart/form-data" \
-          -F "files=@QC flow.bpmn.bpmn" \
-          -F "files=@Determine required QCs.dmn" \
-          -F "deploymentName=MyProcessDeployment" \
-          -F "targetNamespace=your-namespace" \
-          -F "tenantId=your-tenant"
+          curl -L -X POST 'https://sin-1.zeebe.camunda.io:443/0a279923-7c33-4528-ac44-5f3673406126/v2/deployments' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVVXdPVFpDUTBVM01qZEVRME0wTkRFelJrUkJORFk0T0RZeE1FRTBSa1pFUlVWRVF6bERNZyJ9.eyJodHRwczovL2NhbXVuZGEuY29tL2NsdXN0ZXJJZCI6IjBhMjc5OTIzLTdjMzMtNDUyOC1h'
