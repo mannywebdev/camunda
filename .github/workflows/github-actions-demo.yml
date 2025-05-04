@@ -14,12 +14,11 @@ jobs:
 
       - name: Deploy BPMN/DMN to Camunda
         run: |
-          for file in $(find . -type f \( -name "*.bpmn" -o -name "*.dmn" -o -name "*.form" \)); do
-            echo "Uploading $file"
-            curl -X POST https://api.cloud.camunda.io/v1/deployments \
-              -H "Authorization: Bearer ${{ secrets.CAMUNDA_API_TOKEN }}" \
-              -H "Content-Type: multipart/form-data" \
-              -F "files=@$file" \
-              -F "deploymentName=AutoDeployment" \
-              -F "targetNamespace=your-namespace"
-          done
+          curl -X POST https://api.cloud.camunda.io/v1/deployments \
+          -H "Authorization: Bearer ${{ secrets.CAMUNDA_API_TOKEN }}" \
+          -H "Content-Type: multipart/form-data" \
+          -F "files=@QC flow.bpmn.bpmn" \
+          -F "files=@Determine required QCs.dmn" \
+          -F "deploymentName=MyProcessDeployment" \
+          -F "targetNamespace=your-namespace" \
+          -F "tenantId=your-tenant"
